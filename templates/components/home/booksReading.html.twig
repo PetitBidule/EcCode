@@ -34,11 +34,11 @@
 								<td>
 									<div class="flex flex-col gap-2">
 										<a class="leading-none font-medium text-sm text-gray-900 hover:text-primary" data-modal-toggle="#edit_book_modal">
-
-
 											{{ bookRead.bookId.name}}
 										</a>
-										<span class="text-2sm text-gray-700 font-normal leading-3">
+										<span
+											class="text-2sm text-gray-700 font-normal leading-3">
+											{# le replace pour enlever les li et ul dans bdd #}
 											{{ bookRead.description|replace({'<li>': '', '</li>' : '', '<ul>': '', '</ul>': ''})}}
 										</span>
 									</div>

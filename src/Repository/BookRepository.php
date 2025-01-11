@@ -19,13 +19,13 @@ class BookRepository extends ServiceEntityRepository
     /**
      * @return Book[] Renvoie tout les livres
      */
-    public function findAll(): array
-    {
-        return $this->createQueryBuilder('b')
-            ->join('r.book_id', 'b')
-            ->getQuery()
-            ->getResult();
-    }
+    // public function findAll(): array
+    // {
+    //     return $this->createQueryBuilder('b')
+    //         ->join('r.book_id', 'b')
+    //         ->getQuery()
+    //         ->getResult();
+    // }
 
     // renvoie tout les livres en fonction de l'id 
     public function findById(int $userId): array

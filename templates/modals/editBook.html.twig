@@ -10,25 +10,26 @@
 						<div class="flex flex-col gap-1">
 							<label for="book" class="form-label font-normal text-gray-900">Livre</label>
 							<select id="book" class="select" name="book">
-								<option>Livre 2</option>
+								<option>Livre 1</option>
 								<option>Livre 2</option>
 							</select>
 						</div>
 					</div>
 				</form>
 				<div class="flex flex-col gap-5 p-5">
-					{% block title %}
-						{{ form_start(editData) }}
-						{{ form_row(editData.description, {'attr': {'class': 'input border '}}) }}
-
-						{{ form_row(editData.rating, {'attr': {'class': 'input border '}}) }}
-						{{ form_row(editData.is_read) }}
-
-						<div class="flex">
-							<button type="submit" class="btn btn-primary">Enregistrer</button>
-						</div>
-						{{ form_end(editData) }}
-					{% endblock %}
+					<p>Pas Terminé dsl</p>
+					{# {% block title %}
+											{{ form_start(editData) }}
+											{{ form_row(editData.description, {'attr': {'class': 'input border '}}) }}
+					
+											{{ form_row(editData.rating, {'attr': {'class': 'input border '}}) }}
+											{{ form_row(editData.is_read) }}
+					
+											<div class="flex">
+												<button type="submit" class="btn btn-primary">Enregistrer</button>
+											</div>
+											{{ form_end(editData) }}
+										{% endblock %} #}
 				</div>
 
 			</div>

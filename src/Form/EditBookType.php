@@ -18,7 +18,6 @@ class EditBookType extends AbstractType
         
          ->add('description', TextType::class, [
                 'label' => 'Description',
-                'data' => 'Default value',
          ])
             ->add('rating', ChoiceType::class, [
                 'label' => 'Note',
@@ -29,12 +28,9 @@ class EditBookType extends AbstractType
                     '4' => 4,
                     '5' => 5,
                 ],
-                'data' => '1'
-
             ])
             ->add('is_read', CheckboxType::class, [
                 'label' => 'Lecture terminée',
-                'data' => true,
                 'required' => false,
                 'mapped' => false
             ]);

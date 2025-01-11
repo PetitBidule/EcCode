@@ -53,24 +53,23 @@
 											</div>
 										{% endfor %}
 									{% else %}
-										{% for tests in test %}
+										{% for allBook in allBook %}
 											<div class="my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60	">
 												<div class="p-4">
 													<h5 class="mb-2 text-slate-800 text-xl font-semibold">
-														{{ tests.bookId.name}}
+														{{ allBook.bookId.name}}
 
 													</h5>
 													<p class="text-slate-600 leading-normal font-light">
-														{{ tests.bookId.description}}
+														{{ allBook.bookId.description}}
 													</p>
 													<p class="text-slate-600 leading-normal font-light">
 														Notation
-														{{ tests.rating}}
+														{{ allBook.rating}}
 														| Nombres de Page:
-														{{ tests.bookId.pages}}
+														{{ allBook.bookId.pages}}
 
 													</p>
-
 												</div>
 											</div>
 										{% endfor %}

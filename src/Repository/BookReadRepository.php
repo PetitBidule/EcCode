@@ -33,7 +33,9 @@ class BookReadRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-     public function test(): array
+
+    // Renvoie tout les livres de tous les utilisateurs 
+     public function findAllBook(): array
     {
         return $this->createQueryBuilder('r')
             ->addSelect('e')
