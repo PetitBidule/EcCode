@@ -33,4 +33,15 @@ class BookReadRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+     public function test(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->addSelect('e')
+            ->leftJoin('r.book_id', 'e')
+            ->orderBy('r.created_at', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+ 
 }

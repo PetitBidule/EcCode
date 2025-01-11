@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="h-full" data-theme="true" data-theme-mode="light" dir="ltr" lang="fr">
+	<head>
+		<title>BookMaster</title>
+		<meta charset="utf-8"/>
+		<meta content="follow, index" name="robots"/>
+		<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+		<meta content="" name="description"/>
+		<link href="{{ asset('media/icon.png') }}" rel="shortcut icon"/>
+
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+		<link href="{{ asset('metronic/vendors/apexcharts/apexcharts.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('metronic/vendors/keenicons/styles.bundle.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('metronic/css/styles.css') }}" rel="stylesheet"/>
+	</head>
+	<div
+		class="flex grow">
+		<!-- Header -->
+		{% include 'components/main/header.html.twig' %}
+		<!-- End of Header -->
+
+		<!-- Wrapper -->
+			<div
+			class="flex flex-col lg:flex-row grow pt-[--tw-header-height] lg:pt-0"> <!-- Sidebar -->
+			{% include 'components/main/sidebar.html.twig' %}
+			<!-- End of Sidebar -->
+
+			<!-- Main -->
+				<div class="flex flex-col grow rounded-xl bg-[--tw-content-bg] dark:bg-[--tw-content-bg-dark] border border-gray-300 dark:border-gray-200 lg:ms-[--tw-sidebar-width] mt-0 lg:mt-5 m-5"> <div class="flex flex-col grow lg:scrollable-y-auto lg:[scrollbar-width:auto] lg:light:[--tw-scrollbar-thumb-color:var(--tw-content-scrollbar-color)] pt-5" id="scrollable_content">
+					<main
+						class="grow" role="content">
+						<!-- Toolbar -->
+						{% include 'components/main/toolbar.html.twig' %}
+						<!-- End of Toolbar -->
+						<!-- Container -->
+							<div class="container-fixed"> {% block body %}
+								<div class="grid grid-cols-4 gap-4">
+									{% if search != "" %}
+										{% for searchs in search %}
+											<div class="my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60	">
+												<div class="p-4">
+													<h5 class="mb-2 text-slate-800 text-xl font-semibold">
+														{{ searchs.name}}
+													</h5>
+													<p class="text-slate-600 leading-normal font-light">
+														{{ searchs.description}}
+
+													</p>
+												</div>
+											</div>
+										{% endfor %}
+									{% else %}
+										{% for tests in test %}
+											<div class="my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60	">
+												<div class="p-4">
+													<h5 class="mb-2 text-slate-800 text-xl font-semibold">
+														{{ tests.bookId.name}}
+
+													</h5>
+													<p class="text-slate-600 leading-normal font-light">
+														{{ tests.bookId.description}}
+													</p>
+													<p class="text-slate-600 leading-normal font-light">
+														Notation
+														{{ tests.rating}}
+														| Nombres de Page:
+														{{ tests.bookId.pages}}
+
+													</p>
+
+												</div>
+											</div>
+										{% endfor %}
+
+									{% endif %}
+								</div>
+							{% endblock %}
+						</div>
+						<!-- End of Container -->
+					</main>
+				</div>
+				<!-- Footer -->
+				{% include 'components/main/footer.html.twig' %}
+				<!-- End of Footer -->
+			</div>
+			<!-- End of Main -->
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Base -->
+	{% include 'modals/search.html.twig' %}<!-- End of Page -->
+	<!-- Scripts --><script src="{{ asset('metronic/js/core.bundle.js') }}"> </script>
+	<script src="{{ asset('metronic/vendors/apexcharts/apexcharts.min.js') }}"></script>
+	<script src="{{ asset('metronic/js/widgets/general.js') }}"></script>
+	<!-- End of Scripts -->
+
+
+</html>

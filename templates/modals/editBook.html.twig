@@ -1,4 +1,4 @@
-<div class="modal" data-modal="true" id="book_modal">
+<div class="modal" data-modal="true" id="edit_book_modal">
 	<div class="modal-content max-w-[600px] top-[15%]">
 		<div class="modal-header py-4 px-5">
 			<h3 class="modal-title">Ma lecture</h3>
@@ -10,25 +10,24 @@
 						<div class="flex flex-col gap-1">
 							<label for="book" class="form-label font-normal text-gray-900">Livre</label>
 							<select id="book" class="select" name="book">
-								<option>Livre 1</option>
+								<option>Livre 2</option>
 								<option>Livre 2</option>
 							</select>
 						</div>
 					</div>
 				</form>
 				<div class="flex flex-col gap-5 p-5">
-
 					{% block title %}
-						{{ form_start(insertData) }}
-						{{ form_row(insertData.description, {'attr': {'class': 'input border '}}) }}
+						{{ form_start(editData) }}
+						{{ form_row(editData.description, {'attr': {'class': 'input border '}}) }}
 
-						{{ form_row(insertData.rating, {'attr': {'class': 'input border '}}) }}
-						{{ form_row(insertData.is_read) }}
+						{{ form_row(editData.rating, {'attr': {'class': 'input border '}}) }}
+						{{ form_row(editData.is_read) }}
 
 						<div class="flex">
 							<button type="submit" class="btn btn-primary">Enregistrer</button>
 						</div>
-						{{ form_end(insertData) }}
+						{{ form_end(editData) }}
 					{% endblock %}
 				</div>
 

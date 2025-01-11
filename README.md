@@ -46,4 +46,5 @@ php bin/console doctrine:migrations:migrate
 
 ```bash
 php bin/console server:run
+// symfony server:start
 ```

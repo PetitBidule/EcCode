@@ -16,28 +16,35 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
-//    /**
-//     * @return Book[] Returns an array of Book objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Book[] Renvoie tout les livres
+     */
+    public function findAll(): array
+    {
+        return $this->createQueryBuilder('b')
+            ->join('r.book_id', 'b')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Book
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    // renvoie tout les livres en fonction de l'id 
+    public function findById(int $userId): array
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.id = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+    }
+
+    // renvoie en fonction du nom du livre 
+     public function findByNameBook(string $bookName): array
+    {
+       return $this->createQueryBuilder('b')
+        ->where('b.name LIKE :name')
+        ->setParameter('name', '%' . $bookName . '%') 
+        ->getQuery()
+        ->getResult();
+    }
+
 }

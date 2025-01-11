@@ -17,8 +17,9 @@ class BookRead
     #[ORM\Column]
     private ?int $user_id = null;
 
-    #[ORM\Column(type: Types::BIGINT)]
-    private ?string $book_id = null;
+    #[ORM\ManyToOne(targetEntity: Book::class)]
+    #[ORM\JoinColumn(name: "book_id", referencedColumnName: "id", nullable: false)]
+    private ?Book $book_id = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2, nullable: true)]
     private ?string $rating = null;
@@ -55,12 +56,12 @@ class BookRead
         return $this;
     }
 
-    public function getBookId(): ?string
+    public function getBookId(): ?Book
     {
         return $this->book_id;
     }
 
-    public function setBookId(string $book_id): static
+    public function setBookId(Book $book_id): static
     {
         $this->book_id = $book_id;
 
